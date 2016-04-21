@@ -1,0 +1,3 @@
+<div id="cube">
+	<row class="row-{{x+1}}" [x]="x" [row]="m" [maxCol]="(map.length-1)" *ngFor="#m of map; #x = index"></row>
+</div>
