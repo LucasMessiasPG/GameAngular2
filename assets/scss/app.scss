@@ -12,8 +12,22 @@ body > *:not(script):not(div){
   flex: 1;
 }
 
+.p1{
+  background: url(/src/img/p1.png);
+  width: 40px !important;
+  height: 95px !important;
+  -webkit-transform: rotate(32deg) rotateY(140deg);
+  transform: rotate(-10deg) rotateY(193deg) translate3d(-210px,180px,10px);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-position: -400px -130;
+}
+
 .cube .top:hover{
-  background: pink;
+  background: rgba(47, 255, 3, 0.28);
+}
+.cube .top:hover .effect{
+  display: none;
 }
 
 .cube figure{
@@ -40,7 +54,7 @@ figure{
   -moz-transform: translateZ( $tamanho-tile );
   -o-transform: translateZ( $tamanho-tile );
   transform: translateZ( $tamanho-tile );
-  background: url(http://tesbro.pw/uploads/images/dirt-texture-tile-decor-5-wkwNF.png);
+  background: url("/src/img/dirt.png");
 }
 
 .cube .back{
@@ -51,8 +65,29 @@ figure{
   background: yellow;
 }
 
+.effect{
+  transform: rotateY(44deg) rotateX(0deg) rotateZ(39deg) translate(14px);
+  transform-style: preserve-3d;
+  background: url("/src/img/grass-effect.png");
+  background-size: 24px;
+  height: 20px;
+  width: 20px;
+  background-position: 0px -4px;
+  background-repeat: no-repeat;
+}
+
+.default-toast{
+  background-color: peachpuff;
+  width: 300px;
+  height: 60px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+}
+
 .cube .right{
-  webkit-transform: rotateY( 90deg ) translateZ( $tamanho-tile );
+  -webkit-transform: rotateY( 90deg ) translateZ( $tamanho-tile );
   -moz-transform: rotateY( 90deg ) translateZ( $tamanho-tile );
   -o-transform: rotateY( 90deg ) translateZ( $tamanho-tile );
   transform: rotateY( 90deg ) translateZ( $tamanho-tile );
@@ -64,7 +99,7 @@ figure{
   -moz-transform: rotateY( -90deg ) translateZ( $tamanho-tile );
   -o-transform: rotateY( -90deg ) translateZ( $tamanho-tile );
   transform: rotateY( -90deg ) translateZ( $tamanho-tile );
-  background: url(http://tesbro.pw/uploads/images/dirt-texture-tile-decor-5-wkwNF.png);
+  background: url("/src/img/dirt.png");
 }
 
 .cube .top{
@@ -72,7 +107,7 @@ figure{
   -moz-transform: rotateX( 90deg ) translateZ( $tamanho-tile );
   -o-transform: rotateX( 90deg ) translateZ( $tamanho-tile );
   transform: rotateX( 90deg ) translateZ( $tamanho-tile );
-  background: url(https://cdn3.f-cdn.com/contestentries/44321/396651/526fc42128093_thumb.jpg);
+  background: url("/src/img/grass.jpg");
 }
 
 .cube .bottom{

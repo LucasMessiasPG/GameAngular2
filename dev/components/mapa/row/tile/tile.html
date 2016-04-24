@@ -1,3 +1,5 @@
 <figure *ngIf="checkFront()" class="front"></figure>
 <figure *ngIf="checkLeft()" class="left"></figure>
-<figure (click)="clickTile()" class="top"></figure>
+<figure (click)="clickTile()" [ngClass]="getClass()" class="top">
+	<figure *ngIf="effect" [style.transform]="transform" class="effect"></figure>
+</figure>

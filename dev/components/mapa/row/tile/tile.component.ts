@@ -1,8 +1,10 @@
 import {Component} from "angular2/core";
+import {EventEmitter} from "angular2/core";
+import {ToastComponent} from "../../../toast/toast.component";
 @Component({
     selector: 'tile',
     templateUrl:'./app/components/mapa/row/tile/tile.html',
-    inputs:['x','y','tile','maxCol']
+    inputs:['x','y','tile','maxCol'],
 })
 
 export class TileComponent{
@@ -10,6 +12,19 @@ export class TileComponent{
     private y;
     private tile;
     private maxCol;
+    private effect;
+    private transform;
+    private toast;
+
+    constructor(){
+        if(Math.random() > 0.7) {
+            this.effect = true;
+        }else {
+            this.effect = false;
+        }
+        this.transform = 'rotateX(32deg) translate('+parseInt((Math.random()*20).toFixed(2))+'px,'+parseInt((Math.random()*20).toFixed(2))+'px)';
+
+    }
 
     checkFront(){
         if(this.y == this.maxCol) {
@@ -26,9 +41,12 @@ export class TileComponent{
         }
     }
 
+    getClass(){
+        return 'col-'+this.x+'-'+this.y;
+    }
+
     clickTile(){
-        console.log(this.x)
-        console.log(this.y)
+        this.toast.success(this.x+' - '+this.y)
     }
 
 }
