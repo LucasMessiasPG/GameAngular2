@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
 @Component({
-    select:'Login',
+    selector:'Login',
     templateUrl:'./app/components/login.html'
 })
 

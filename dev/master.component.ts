@@ -4,15 +4,17 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
 import {ElementRef} from "angular2/core";
 import {LoginComponent} from "./components/login.component";
 import {HomeComponent} from "./components/home/home.component";
+import {ToastComponent} from "./components/toast/toast.component";
 
 @Component({
     selector:'app',
     template:`
     <div class="scene">
         <router-outlet></router-outlet>
+        <toast></toast>
     </div>
     `,
-    directives:[ROUTER_DIRECTIVES]
+    directives:[ROUTER_DIRECTIVES,ToastComponent]
 })
 
 @RouteConfig([

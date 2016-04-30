@@ -2,6 +2,7 @@ import {Component} from 'angular2/core'
 import {MenuBarComponent} from "../menu-bar/menu-bar.component";
 import {MapaComponent} from "../mapa/mapa.component";
 import {PersonagemComponent} from "../personagem/personagem.component";
+import {ToastComponent} from "../toast/toast.component";
 
 @Component({
     selector:'bg-home',
@@ -16,7 +17,7 @@ export class BgHomeComponent{
 
     public map = [];
     public personagem = {};
-    public tamanho = 10;
+    public tamanho = 14;
 
     constructor(){
         this.personagem = {x:0,y:10};

@@ -1,19 +1,25 @@
-import {Injectable} from "angular2/core";
-import {Observable} from "rxjs/Observable";
+import {Injectable, EventEmitter} from "angular2/core";
+import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/map';
+
+export interface Toast{
+    msg: String;
+    tipo: String;
+    timer: Number;
+    title: String;
+}
+
 @Injectable()
 export class ToastService{
-    addToast;
-    private _addToast: Observable<any>;
+    public toast$: EventEmitter<any>;
 
-    constructor(){
-        this.addToast = new Observable(observer => this._addToast = observer).share();
+    constructor() {
+        this.toast$ = new EventEmitter();
     }
 
-    pop(type: string , title?: string, body?: string) {
-        let toast = typeof type === 'string' ? { type: type, title: title, body: body } : type;
-
-
-        this._addToast.next(toast);
-        return toast;
+    pop(toast: Toast) {
+        this.toast$.emit(toast)
     }
+
+
 }
