@@ -1,0 +1,3 @@
+<div class="toast" [ngClass]="toast.class"  *ngFor="#toast of _toast; #i = index">
+    <toast [toast]="toast" (click)="close(toast)"></toast>
+</div>

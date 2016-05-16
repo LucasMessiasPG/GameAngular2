@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
-var assetsDev = 'assets/';
-var assetsProd = 'src/';
+var assetsDev = 'dev/assets/';
+var assetsProd = 'app/src/';
 
 var appDev = 'dev/';
 var appProd = 'app/';
@@ -39,15 +39,13 @@ gulp.task('build-ts', function () {
         .pipe(sourcemaps.init())
         .pipe(typescript(tsProject))
         .pipe(sourcemaps.write())
-        //.pipe(jsuglify())
+        .pipe(jsuglify())
         .pipe(gulp.dest(appProd));
 });
 
 gulp.task('build-img', function () {
     return gulp.src(assetsDev + 'img/**/*')
-        .pipe(imagemin({
-            progressive: true
-        }))
+        .pipe(imagemin())
         .pipe(gulp.dest(assetsProd + 'img/'));
 });
 
@@ -56,11 +54,29 @@ gulp.task('build-html', function () {
         .pipe(gulp.dest(appProd));
 });
 
+gulp.task('move-js', function () {
+    return gulp.src(assetsDev + 'js/**/*.js')
+        .pipe(gulp.dest(assetsProd + 'js/'));
+});
+
+gulp.task('move-css', function () {
+    return gulp.src(assetsDev + 'css/**/*.css')
+        .pipe(gulp.dest(assetsProd + 'css/'));
+});
+
+gulp.task('move-fonts', function () {
+    return gulp.src(assetsDev + 'fonts/**/*')
+        .pipe(gulp.dest(assetsProd + 'fonts/'));
+});
+
 gulp.task('watch', function () {
     gulp.watch(appDev + '**/*.ts', ['build-ts']);
     gulp.watch(appDev + '**/*.html', ['build-html']);
     gulp.watch(assetsDev + 'scss/**/*.scss', ['build-css']);
-    gulp.watch(assetsDev + 'img/*', ['build-img']);
+    gulp.watch(assetsDev + 'img/**/*', ['build-img']);
+    gulp.watch(assetsDev + 'css/**/*', ['move-css']);
+    gulp.watch(assetsDev + 'js/**/*', ['move-js']);
+    gulp.watch(assetsDev + 'fonts/**/*', ['move-fonts']);
 });
 
-gulp.task('default', ['watch', 'build-ts', 'build-html','build-img', 'build-css']);
+gulp.task('default', ['watch', 'build-ts', 'build-html','build-img', 'build-css','move-css','move-fonts','move-js']);

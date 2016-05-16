@@ -16,6 +16,4 @@ import {RowComponent} from "./row/row.component";
 })
 export class MapaComponent{
     public map;
-
-
 }
