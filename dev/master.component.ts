@@ -10,7 +10,7 @@ import {ToastListComponent} from "./components/toast/toast-list/toast-list.compo
     template:`
     <div class="scene">
         <router-outlet></router-outlet>
-        <toast-list class="toast-list"></toast-list>
+        <toast></toast>
     </div>
     `,
     directives:[ROUTER_DIRECTIVES,ToastListComponent]

@@ -1,1 +1,1 @@
-<tile class="cube col-{{y+1}}" [tile]="tile" [x]="x" [y]="y" [maxCol]="maxCol" *ngFor="#tile of row; #y = index"></tile>
+<tile class="cube col-{{y+1}}" [tile]="tile" [x]="x" [y]="y" [maxCol]="maxCol" *ngFor="let tile of row; let y = index"></tile>

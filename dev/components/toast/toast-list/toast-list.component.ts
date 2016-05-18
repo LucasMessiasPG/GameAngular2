@@ -2,15 +2,57 @@ import {Component} from "angular2/core";
 import {Toast, ToastService} from "./toast-list.service";
 import {ToastComponent} from "../toast-component/toast.component";
 @Component({
-    selector:'toast-list',
-    templateUrl:'../app/components/toast/toast-list/toast-list.html',
-    directives:[ToastComponent
-    ]
+    selector:'toast',
+    template:`
+    <div class="toast" [ngClass]="toast.class"  *ngFor="let toast of _toast; let i = index">
+        <toast-component class="toast-component" [toast]="toast" (click)="close(toast)"></toast-component>
+    </div>
+    `,
+    directives:[ToastComponent],
+    styles:[`
+    .toast{
+      background-color: rgba(0,0,0,.4);
+      width: 250px;
+      color: white;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0,0,0,.4);
+      padding: 5px;
+      position: relative;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    .toast.default{
+      background-color: rgba(255,255,255,.4);
+      color: #000;
+    }
+    
+    .toast.success{
+      background-color: #51a351;
+      color: #fff;
+    }
+    
+    .toast.error{
+      background-color: #bd362f;
+      color: #fff;
+    }
+    
+    .toast.info{
+      background-color: #2f96b4;
+      color: #fff;
+    }
+    
+    .toast.warning{
+      background-color: #f89406;
+      color: #fff;
+    }
+    `]
 })
 
 export class ToastListComponent{
     private _toast;
-    private _tipos = ['defautl','success','error','warning'];
+    private _types = ['defautl','success','error','warning','info'];
 
     constructor(private _toastService: ToastService) {
         this._toastService.toast$.subscribe(toast => this.addToast(toast))
@@ -38,11 +80,11 @@ export class ToastListComponent{
         if(!toast.message){
             return null;
         }
-        if(!toast.tipo || toast.tipo && this._tipos.indexOf(toast.tipo) < 0){
-            toast.tipo = 'default'
+        if(!toast.type || toast.type && this._types.indexOf(toast.type) < 0){
+            toast.type = 'default'
         }
 
-        toast.class = toast.tipo;
+        toast.class = toast.type;
 
         if(!toast.title){
             toast.title = 'Aviso';

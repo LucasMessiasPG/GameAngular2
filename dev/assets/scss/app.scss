@@ -21,7 +21,7 @@ body > *:not(script):not(div){
 }
 
 .p1{
-  background: url(/src/img/p1.jpg);
+  background: url(/app/src/img/p1.jpg);
   width: 40px !important;
   height: 95px !important;
   -webkit-transform: rotate(32deg) rotateY(140deg);
@@ -64,7 +64,7 @@ figure{
   -moz-transform: translateZ( $tamanho-tile );
   -o-transform: translateZ( $tamanho-tile );
   transform: translateZ( $tamanho-tile );
-  background: url("/src/img/tiles.png");
+  background: url("/app/src/img/tiles.png");
   background-position: 0px -110px;
   background-size: 300px;
 }
@@ -81,59 +81,12 @@ figure{
   transform: rotateY(-24deg) rotateX(20deg) rotate(21deg) translate(2px,-8px);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  background: url(/src/img/grass-effect.png);
+  background: url('/app/src/img/grass-effect.png');
   background-repeat: no-repeat;
   height: 40px !important;
   background-position: 0px;
   background-size: 38px;
 }
-
-@keyframes toast-key1 {
-  0% {
-    bottom: -70px;
-    opacity: 0;
-  }
-  50%{
-    opacity: .3;
-  }
-  100%{
-    bottom: 20px;
-    opacity: 1;
-  }
-}
-
-#toast{
-  display: block;
-  width: 250px;
-  height: 260px;
-  position: absolute;
-  right: 20px;
-}
-
-.toast{
-  background-color: rgba(0,0,0,.4);
-  height: 60px;
-  width: 250px;
-  color: white;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
-  padding: 5px;
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.toast.default{
-  background-color: rgba(255,255,255,.4);
-  color: black;
-}
-
-.toast.success{
-  background-color: rgba(0,200,0,.4);
-  color: black;
-}
-
 
 .cube .right{
   -webkit-transform: rotateY( 90deg ) translateZ( $tamanho-tile );
@@ -148,7 +101,7 @@ figure{
   -moz-transform: rotateY( -90deg ) translateZ( $tamanho-tile );
   -o-transform: rotateY( -90deg ) translateZ( $tamanho-tile );
   transform: rotateY( -90deg ) translateZ( $tamanho-tile );
-  background: url("/src/img/tiles.png");
+  background: url("/app/src/img/tiles.png");
   background-position: 0px -55px;
   background-size: 300px;
 }
@@ -158,7 +111,7 @@ figure{
   -moz-transform: rotateX( 90deg ) translateZ( $tamanho-tile );
   -o-transform: rotateX( 90deg ) translateZ( $tamanho-tile );
   transform: rotateX( 90deg ) translateZ( $tamanho-tile );
-  background: url("/src/img/tiles.png");
+  background: url("/app/src/img/tiles.png");
   background-position: 0px 0px;
   background-size: 300px;
 }
