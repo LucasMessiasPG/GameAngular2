@@ -30,7 +30,6 @@ import {Component} from "angular2/core";
             line-height: 14px;
             width: 199px;
             margin: 0;
-            
         }
         .toast-icon{
             font-size: 40px;

@@ -27,6 +27,7 @@ export class TileComponent{
     private _class;
     private tile$
     private selected: boolean = false;
+    private personagem;
 
     constructor(toastService: ToastService, mapaService: MapaService){
         if(Math.random() > 0.8) {
@@ -74,13 +75,8 @@ export class TileComponent{
     }
 
     clickTile(){
-        // this._mapaService.move(this.self)
-
-        this._toastService.pop({message:'teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste',type:'success',timer:9000000});
-        this._toastService.pop({message:this.x+'-2-'+this.y,type:'error',timer:9000000});
-        this._toastService.pop({message:this.x+'-3-'+this.y,type:'info',timer:9000000});
-        this._toastService.pop({message:this.x+'-4-'+this.y,type:'warning',timer:9000000});
-        this._toastService.pop({message:this.x+'-5-'+this.y,type:'default',timer:9000000});
+        this.personagem = {user:1};
+        this.effect = false;
     }
 
 }
