@@ -19,13 +19,16 @@ export class BgHomeComponent{
     public tamanho = 14;
 
     constructor(){
-        this.personagem = {x:0,y:10};
         for(var x = 0;x < this.tamanho; x++){
             var row = x;
             this.map[row] = [];
             for(var y = 0;y < this.tamanho; y++){
                 var col = y;
-                this.map[row][col] = 1;
+                if(Math.random() > 0.8){
+                    this.map[row][col] = 2;
+                }else {
+                    this.map[row][col] = 1;
+                }
             }
         }
     }

@@ -5,12 +5,12 @@ import {TileComponent} from "./tile/tile.component";
     //template:'',
     templateUrl:'./app/components/mapa/row/row.html',
     directives:[TileComponent],
-    inputs:['x','row','maxCol']
+    inputs:['x','maxCol','row']
 })
 
 export class RowComponent{
     private x;
     private maxCol;
     private row;
-
+    
 }

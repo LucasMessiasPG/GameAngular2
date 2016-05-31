@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core'
+import {ToastService} from "../toast/toast-list/toast-list.service";
 
 @Component({
     selector:'menu-bar',
@@ -13,4 +14,14 @@ import {Component} from 'angular2/core'
     `]
 })
 
-export class MenuBarComponent{}
+export class MenuBarComponent{
+    private toast;
+
+    constructor(_toast: ToastService){
+        this.toast = _toast;
+    }
+
+    toastPop(type){
+        this.toast.pop({message:type,type:type})
+    }
+}

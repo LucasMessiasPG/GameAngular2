@@ -1,6 +1,6 @@
 <figure *ngIf="checkFront()" class="front"></figure>
 <figure *ngIf="checkLeft()" class="left"></figure>
-<figure (click)="clickTile()" [ngClass]="getClass()" [ngClass]="_class" class="top">
+<figure (click)="clickTile()" [ngClass]="_class" class="top">
 	<figure *ngIf="effect" class="effect"></figure>
 </figure>
 <div *ngIf="personagem">
